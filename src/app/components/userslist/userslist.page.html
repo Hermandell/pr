@@ -1,0 +1,33 @@
+<ion-header no-border>
+  <ion-toolbar>
+
+    <ion-title>Personajes</ion-title>
+  </ion-toolbar>
+
+<ion-searchbar animated
+(ionChange)="buscar( $event)"></ion-searchbar>
+
+</ion-header>
+<ion-content>
+
+    <ion-grid>
+        <ion-row>
+            <ion-col sizeMd="4" offsetMd="4">
+                <ion-list>
+  <!-- -----------------------------------aqui va el pibe directo con el ngfor  -->
+
+                    <ion-item *ngFor="let character of personajes| filtro:textoBuscar:'name'" [routerLink]="['/profile/'+character.char_id]">
+
+                        <ion-avatar slot="start">
+                            <img src="{{character.img}}" alt="">
+                        </ion-avatar>
+
+                  <!-- -----------------------------------se toma el "name" para pasarlo por el pibe  -->
+                        <ion-label>{{character.name}}</ion-label>
+                    </ion-item>
+                </ion-list>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
+</ion-content>

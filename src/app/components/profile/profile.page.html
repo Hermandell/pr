@@ -1,0 +1,42 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>Profile</ion-title>
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="userslist"></ion-back-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content *ngFor="let characters of perfilpersonaje">
+
+    <ion-grid>
+        <ion-row>
+            <ion-col sizeMd="4" offsetMd="4">
+                <div *ngIf="characters">
+                    <ion-card>
+                        <ion-card-content class="ion-text-center">
+                            <img src="{{characters.img}}" width="270px" height="370px">
+                            <ion-card-title>{{characters.name| titlecase}} ({{characters.nickname}})</ion-card-title>
+                            <dl>
+                                <dt>Occupation:</dt>
+                                <dd class="ion-text-left" *ngFor="let char of characters.occupation">- {{char}}</dd>
+
+                            </dl>
+
+                            <p>Birthday:{{characters.birthday ? (characters.birthday.toString() | lowercase) : (characters.birthday.toString() | date:'fullDate')}}</p>
+
+                            <p>Status:{{characters.status}}</p>
+                            <p>Portrayed:{{characters.portrayed}}</p>
+                        </ion-card-content>
+                    </ion-card>
+                </div>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
+
+
+
+
+
+</ion-content>
